@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html ng-app="empApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeUI</title>
+
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</head>
+<body ng-controller="empController" onload="getEmployees()">    
+    <span style="color:green">@TempData["Message"]</span>
+    <br /><br />
+    <table>
+        
+    <tr>
+        <td style="color:blueviolet">@Html.ActionLink("Create Employee", "Create")
+       </td></tr></table>
+    
+    <br />
+  
+   
+    <div>
+        <table class="table table-striped"" cellpadding="2" cellspacing="2" border="1">
+            <tr class="success">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date Of Birth</th>
+                <th>GPA</th>
+            </tr>
+            <tr class="success" ng-repeat="employee in employees">
+                <td>{{employee.FirstName}}</td>
+                <td>{{employee.LastName}}</td>
+                <td>{{employee.DateOfBirth | date}}</td>
+                <td>{{employee.GPA}}</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

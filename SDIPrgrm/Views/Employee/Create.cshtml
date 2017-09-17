@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+@model SDIPrgrm.Employee
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />  
+
+    <link href="~/Scripts/style.css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <title>CreateEmployee</title>
+</head>
+<body>
+    @using(Html.BeginForm("Create","Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <span style="display:block;color:cornflowerblue">Create Employee</span>
+        </div>
+    <div class="container">
+        <div class="form-group">
+            <label>First Name:</label>
+            <input type="text" id="TxtFName" name="FirstName" ng-model="firstname" />
+            <span style=" display:none; color:red" id="fspan">First Name is Required</span>
+        </div>
+        <div class="form-group">
+            <label>Last Name:</label>
+            <input type="text" id="TxtLName" name="LastName" />            
+        </div>
+        <div class="form-group">
+            <label> Date Of Birth</label>
+            <input type="date" id="dob" name="DateOfBirth">            
+        </div>
+        <div class="form-group">
+            <label> GPA:</label>
+            <input type="text" id="TxtGPA" name="GPA" maxlength="3" placeholder="Enter 0.0 - 4.0 " />
+            <span style=" display:none; color:red" id="fspan">First Name is Required</span>
+            <span id="gpaspan" style="display:none; color:red">Enter U.S. Standard 0.0 through 4.0 values</span>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit" id="btn" name="BtnSave" value="Save Employee" />
+                    </td>
+                    <td>
+                        <input type="reset" name="BtnReset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+ </div>
+    }
+</body>
+</html>
